@@ -1,8 +1,9 @@
 import React from "react";
 import { useGLTF } from "@react-three/drei/native";
-export default function Model(props) {
+
+export default function ModelGLB(props) {
   const { onLoaded } = props;
-  const { nodes, materials } = useGLTF(require("./models/dollar.glb"));
+  const { nodes, materials } = useGLTF(require("./../../models/dollar.glb"));
 
   onLoaded();
 
@@ -19,4 +20,4 @@ export default function Model(props) {
   );
 }
 
-useGLTF.preload(require("./models/dollar.glb"));
+useGLTF.preload(require("./../../models/dollar.glb"));

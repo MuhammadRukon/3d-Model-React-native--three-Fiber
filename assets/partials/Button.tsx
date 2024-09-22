@@ -6,16 +6,16 @@ interface Props {
 }
 const Button = ({ format, handlePress }: Props) => {
   return (
-    <TouchableOpacity onPress={() => handlePress()}>
+    <TouchableOpacity onPress={handlePress}>
       <View
         style={{
           backgroundColor: "black",
           padding: 18,
           borderRadius: 6,
-          width: 80,
+          width: 90,
         }}
       >
-        <Text style={{ color: "white", fontSize: 20, textAlign: "center" }}>
+        <Text style={{ color: "white", fontSize: 16, textAlign: "center" }}>
           {format}
         </Text>
       </View>

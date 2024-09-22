@@ -16,6 +16,7 @@ import Model from "./assets/components/modelRender/Model";
 import ModelSTL from "./assets/components/modelRender/ModelSTL";
 import ModelThreeSTL from "./assets/components/modelRender/modelThreeSTL";
 import ModelTwoSTL from "./assets/components/modelRender/ModelTwoSTL";
+import EditableModel from "./assets/ui/EditableModel";
 
 const Model3DScreen = () => {
   const [OrbitControls, events] = useControls();
@@ -55,7 +56,7 @@ const Model3DScreen = () => {
         return null;
     }
   };
-
+  // return <EditableModel />;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.modelContainer} {...events}>

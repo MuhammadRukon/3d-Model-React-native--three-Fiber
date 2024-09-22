@@ -25,7 +25,6 @@ export default function ModelSTL(props) {
         material={new THREE.MeshStandardMaterial({ color: "gray" })} // Set a color for better visibility
         rotation={[-Math.PI / 2.2, 0, 0]} // Adjust rotation as necessary
       />
-      {/* Uncomment the following line to see axes for debugging */}
       <axesHelper args={[5]} />
     </group>
   );

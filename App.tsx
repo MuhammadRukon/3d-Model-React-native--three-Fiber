@@ -38,117 +38,117 @@ const Model3DScreen = () => {
     setIsLoading(false);
   };
 
-  const renderModel = () => {
-    switch (format) {
-      case "glb":
-        return <ModelGLB onLoaded={handleModelLoaded} />;
-      case "glb2":
-        return <ModelTwoGLB onLoaded={handleModelLoaded} />;
-      case "stl":
-        return <Model onLoaded={handleModelLoaded} />;
-      case "stl2":
-        return <ModelSTL onLoaded={handleModelLoaded} />;
-      case "stl3":
-        return <ModelThreeSTL onLoaded={handleModelLoaded} />;
-      case "stlTwo":
-        return <ModelTwoSTL onLoaded={handleModelLoaded} />;
-      default:
-        return null;
-    }
-  };
-  // return <EditableModel />;
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.modelContainer} {...events}>
-        {isLoading && (
-          <View style={styles.loadingContainer}>
-            <ActivityIndicator size="large" color="black" />
-            <Text style={styles.loadingText}>Loading 3D Model...</Text>
-          </View>
-        )}
-        <Canvas onCreated={onCreated}>
-          <OrbitControls enablePan={false} />
-          <directionalLight
-            position={[10, 10, 10]}
-            intensity={1}
-            color="black"
-          />
-          <Suspense fallback={null}>
-            {renderModel()}
-            <Environment preset="sunset" />
-          </Suspense>
-        </Canvas>
-        {!isLoading && (
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>
-              This is a 3D model of a{" "}
-              {format === "glb"
-                ? "Dollar Sign"
-                : format === "glb2"
-                ? "wheel"
-                : format === "stl"
-                ? "roof"
-                : "nothing"}
-            </Text>
-          </View>
-        )}
-      </View>
-      <View style={styles.buttonContainer}>
-        <Button
-          format="glb"
-          handlePress={() => {
-            setIsLoading(true);
-            setFormat("glb");
-          }}
-        />
-        <Button
-          format="glb2"
-          handlePress={() => {
-            setIsLoading(true);
-            setFormat("glb2");
-          }}
-        />
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          gap: 10,
-          marginTop: 10,
-          marginBottom: 20,
-        }}
-      >
-        <Button
-          format="stl"
-          handlePress={() => {
-            setIsLoading(true);
-            setFormat("stl");
-          }}
-        />
-        <Button
-          format="stl"
-          handlePress={() => {
-            setIsLoading(true);
-            setFormat("stl2");
-          }}
-        />
-        <Button
-          format="stl"
-          handlePress={() => {
-            setIsLoading(true);
-            setFormat("stl3");
-          }}
-        />
-        <Button
-          format="stl"
-          handlePress={() => {
-            setIsLoading(true);
-            setFormat("stlTwo");
-          }}
-        />
-      </View>
-    </SafeAreaView>
-  );
+  // const renderModel = () => {
+  //   switch (format) {
+  //     case "glb":
+  //       return <ModelGLB onLoaded={handleModelLoaded} />;
+  //     case "glb2":
+  //       return <ModelTwoGLB onLoaded={handleModelLoaded} />;
+  //     case "stl":
+  //       return <Model onLoaded={handleModelLoaded} />;
+  //     case "stl2":
+  //       return <ModelSTL onLoaded={handleModelLoaded} />;
+  //     case "stl3":
+  //       return <ModelThreeSTL onLoaded={handleModelLoaded} />;
+  //     case "stlTwo":
+  //       return <ModelTwoSTL onLoaded={handleModelLoaded} />;
+  //     default:
+  //       return null;
+  //   }
+  // };
+  return <EditableModel />;
+  // return (
+  //   <SafeAreaView style={styles.container}>
+  //     <View style={styles.modelContainer} {...events}>
+  //       {isLoading && (
+  //         <View style={styles.loadingContainer}>
+  //           <ActivityIndicator size="large" color="black" />
+  //           <Text style={styles.loadingText}>Loading 3D Model...</Text>
+  //         </View>
+  //       )}
+  //       <Canvas onCreated={onCreated}>
+  //         <OrbitControls enablePan={false} />
+  //         <directionalLight
+  //           position={[10, 10, 10]}
+  //           intensity={1}
+  //           color="black"
+  //         />
+  //         <Suspense fallback={null}>
+  //           {renderModel()}
+  //           <Environment preset="sunset" />
+  //         </Suspense>
+  //       </Canvas>
+  //       {!isLoading && (
+  //         <View style={styles.textContainer}>
+  //           <Text style={styles.text}>
+  //             This is a 3D model of a{" "}
+  //             {format === "glb"
+  //               ? "Dollar Sign"
+  //               : format === "glb2"
+  //               ? "wheel"
+  //               : format === "stl"
+  //               ? "roof"
+  //               : "nothing"}
+  //           </Text>
+  //         </View>
+  //       )}
+  //     </View>
+  //     <View style={styles.buttonContainer}>
+  //       <Button
+  //         format="glb"
+  //         handlePress={() => {
+  //           setIsLoading(true);
+  //           setFormat("glb");
+  //         }}
+  //       />
+  //       <Button
+  //         format="glb2"
+  //         handlePress={() => {
+  //           setIsLoading(true);
+  //           setFormat("glb2");
+  //         }}
+  //       />
+  //     </View>
+  //     <View
+  //       style={{
+  //         flexDirection: "row",
+  //         justifyContent: "center",
+  //         gap: 10,
+  //         marginTop: 10,
+  //         marginBottom: 20,
+  //       }}
+  //     >
+  //       <Button
+  //         format="stl"
+  //         handlePress={() => {
+  //           setIsLoading(true);
+  //           setFormat("stl");
+  //         }}
+  //       />
+  //       <Button
+  //         format="stl"
+  //         handlePress={() => {
+  //           setIsLoading(true);
+  //           setFormat("stl2");
+  //         }}
+  //       />
+  //       <Button
+  //         format="stl"
+  //         handlePress={() => {
+  //           setIsLoading(true);
+  //           setFormat("stl3");
+  //         }}
+  //       />
+  //       <Button
+  //         format="stl"
+  //         handlePress={() => {
+  //           setIsLoading(true);
+  //           setFormat("stlTwo");
+  //         }}
+  //       />
+  //     </View>
+  //   </SafeAreaView>
+  // );
 };
 
 export default Model3DScreen;
